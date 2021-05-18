@@ -1,7 +1,14 @@
 package pl.sdacademy.hibernate.hello.common;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "country")
 public class Country {
 
+    @Id
     private String code;
 
     private String name;

@@ -18,9 +18,9 @@ public class Workshop2 {
     private static List<String> getCountries(String continent) {
         final List<String> countries = new LinkedList<>();
         try (final Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:6306/world", "root", "example")) {
-            try (final PreparedStatement statement = connection.prepareStatement("select name from country where continent = ? order by name;")) {
-                statement.setString(1, continent);
-                final ResultSet resultSet = statement.executeQuery();
+            try (final PreparedStatement preparedStatement = connection.prepareStatement("SELECT name FROM country WHERE continent = ? ORDER BY name;")) {
+                preparedStatement.setString(1, continent);
+                final ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
                     countries.add(resultSet.getString("name"));
