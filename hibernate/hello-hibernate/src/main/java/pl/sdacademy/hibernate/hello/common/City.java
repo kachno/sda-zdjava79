@@ -1,11 +1,18 @@
 package pl.sdacademy.hibernate.hello.common;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "city")
 public class City {
 
+    @Id
     private Integer id;
 
     private String name;
 
+    @ManyToOne
+    @JoinColumn (name = "countryCode")
     private Country country;
 
     private String district;
